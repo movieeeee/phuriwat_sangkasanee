@@ -80,48 +80,31 @@
         .project .details {
             padding: 15px;
             text-align: center;
-            position: relative;
-            overflow: hidden; /* Hide the overflowed content */
         }
 
-        .project .details p {
+        .project h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .project p {
             font-size: 1rem;
             color: #555;
-            line-height: 1.5;
-            max-height: 4.5rem; /* Set a max-height to show only 2-3 lines */
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3; /* Limits the text to 3 lines */
-            -webkit-box-orient: vertical;
         }
 
-        .project .details .read-more {
-            display: none; /* Hide the read-more button initially */
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
-        .project .details.expanded p {
-            max-height: none; /* Remove max-height when expanded */
-        }
-
-        .project .details.expanded .read-more {
-            display: block; /* Show the read-more button when expanded */
-        }
-
-        /* Modal Styles */
+        /* Modal */
         .modal {
-            display: none; /* Hidden by default */
+            display: none; 
             position: fixed;
             z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7);
             padding-top: 60px;
         }
 
@@ -131,13 +114,7 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 900px;
-            border-radius: 10px;
-        }
-
-        .modal img {
-            width: 100%;
-            height: auto;
+            max-width: 600px;
         }
 
         .close {
@@ -145,7 +122,6 @@
             float: right;
             font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
         }
 
         .close:hover,
@@ -155,6 +131,16 @@
             cursor: pointer;
         }
 
+        #modalText {
+            margin-bottom: 20px;
+        }
+
+        #modalImage img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Footer */
         footer {
             background-color: #333;
             color: white;
@@ -181,7 +167,7 @@
 
     <section class="about-me">
         <h2>About Me</h2>
-        <p>Welcome! I am Phuriwat Sangkasanee, a dedicated Mechanical Engineering undergraduate at the University of Toronto, aiming to specialize in the automotive or biomedical sector. I am particularly focused on how advancements in mechanical design can drive innovation and improve the quality of life within those fields. Whether working on automotive systems or biomedical devices, I am excited to contribute to impactful solutions that enhance performance and improve lives.</p>
+        <p>Welcome! I am ___, a dedicated Mechanical Engineering undergraduate at the University of Toronto, aiming to specialize in the automotive or biomedical sector. I am particularly focused on how advancements in mechanical design can drive innovation and improve the quality of life within those fields. Whether working on automotive systems or biomedical devices, I am excited to contribute to impactful solutions that enhance performance and improve lives.</p>
     </section>
 
     <section class="projects">
@@ -189,8 +175,7 @@
             <img src="project1.jpg" alt="___ Bookstore Inventory Management and Merchandise Flow Optimization">
             <div class="details">
                 <h3>___ Bookstore Inventory Management and Merchandise Flow Optimization</h3>
-                <p>Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties. I worked closely with the Engineering Manager to monitor project progress, resolve issues, and maintain client satisfaction throughout the project.</p>
-                <span class="read-more" onclick="toggleDetails(event, this)">Read More</span>
+                <p>Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties. Click to see more.</p>
             </div>
         </div>
         
@@ -198,8 +183,7 @@
             <img src="project2.jpg" alt="CNC Machine Design">
             <div class="details">
                 <h3>CNC Machine Design</h3>
-                <p>Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications. The project progressed efficiently through regular team meetings and project management tools to maintain timeline and resource tracking.</p>
-                <span class="read-more" onclick="toggleDetails(event, this)">Read More</span>
+                <p>Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications. The project progressed efficiently through regular team meetings and project management tools to maintain timeline and resource tracking. Click to see more.</p>
             </div>
         </div>
 
@@ -208,33 +192,64 @@
             <div class="details">
                 <h3>Project 3</h3>
                 <p>Project description goes here. Click to see more.</p>
-                <span class="read-more" onclick="toggleDetails(event, this)">Read More</span>
             </div>
         </div>
     </section>
 
     <!-- Modal -->
-    <div id="modal1" class="modal">
+    <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal(1)">&times;</span>
-            <img src="project1.jpg" alt="Project 1">
-            <h3>___ Bookstore Inventory Management and Merchandise Flow Optimization</h3>
-            <p>Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties. I worked closely with the Engineering Manager to monitor project progress, resolve issues, and maintain client satisfaction throughout the project.</p>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalText"></div>
+            <div id="modalImage"></div>
         </div>
     </div>
 
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal(2)">&times;</span>
-            <img src="project2.jpg" alt="CNC Machine Design">
-            <h3>CNC Machine Design</h3>
-            <p>Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications. The project progressed efficiently through regular team meetings and project management tools to maintain timeline and resource tracking.</p>
-        </div>
-    </div>
-    
     <footer>
-        <p>Contact me: <a href="phuriwat.sangkasanee@mail.utoronto.ca">phuriwat.sangkasanee@mail.utoronto.ca</a></p>
-        <p>&copy; 2024 Phuriwat Sangkasanee. All Rights Reserved.</p>
+        <p>Contact me: <a href="mailto:email@example.com">email@example.com</a></p>
+        <p>&copy; 2024 name. All Rights Reserved.</p>
     </footer>
-    <!-- Footer -->
-   
+
+    <script>
+        function openModal(projectId) {
+            const modal = document.getElementById('myModal');
+            const modalText = document.getElementById('modalText');
+            const modalImage = document.getElementById('modalImage');
+
+            // Example data for projects
+            const projectData = {
+                1: {
+                    text: 'Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties.',
+                    image: 'project1.jpg'
+                },
+                2: {
+                    text: 'Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications.',
+                    image: 'project2.jpg'
+                },
+                3: {
+                    text: 'Project description for Project 3 goes here.',
+                    image: 'https://example.com/project3.jpg'
+                }
+            };
+
+            // Set the modal content based on the selected project
+            modalText.innerHTML = projectData[projectId].text;
+            modalImage.innerHTML = `<img src="${projectData[projectId].image}" alt="Project Image">`;
+
+            // Show the modal
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
+
+    <footer>
+        <p>Contact me: <a href="email">email</a></p>
+        <p>&copy; 2024 name. All Rights Reserved.</p>
+    </footer>
+    
+</body>
+</html>
