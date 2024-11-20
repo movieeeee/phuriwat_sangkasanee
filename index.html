@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engineering Portfolio</title>
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,150 +13,144 @@
         }
 
         /* Banner Section */
-        .banner {
+        header {
+            position: relative;
             width: 100%;
             height: 300px;
-            background-image: url('banner.jpg'); /* Banner image file path */
+            background-image: url('https://example.com/your-banner-image.jpg'); /* Replace with your banner image */
             background-size: cover;
             background-position: center;
+        }
+
+        header h1 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 3rem;
+            margin: 0;
         }
 
         /* About Me Section */
         .about-me {
             padding: 20px;
-            background-color: #fff;
+            background-color: #ffffff;
             text-align: center;
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
+        .about-me h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
 
         .about-me p {
-            font-size: 16px;
+            font-size: 1.1rem;
             color: #333;
         }
 
         /* Projects Section */
         .projects {
-            padding: 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            padding: 20px;
         }
 
         .project {
             width: 30%;
             margin: 10px;
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .project-img {
-            width: 100%;
-            max-width: 300px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.3s;
         }
 
-        .project-img:hover {
+        .project:hover {
             transform: scale(1.05);
         }
 
-        .project-details {
-            display: none;
-            padding: 10px;
-            background-color: #f4f4f4;
-            border-radius: 5px;
-            margin-top: 10px;
+        .project img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* This will ensure the image fits within the box */
         }
 
-        .project-details h3 {
-            font-size: 18px;
+        .project .details {
+            padding: 15px;
+            text-align: center;
         }
 
-        .project-details p {
-            font-size: 14px;
+        .project h3 {
+            font-size: 1.5rem;
+            margin: 0;
             color: #333;
         }
 
-        /* Footer Section */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+        .project p {
+            font-size: 1rem;
+            color: #555;
         }
 
-        footer p {
-            margin: 0;
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
         }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
+    <header>
+        <h1>Your Engineering Portfolio</h1>
+    </header>
 
-    <!-- Banner Section -->
-    <div class="banner"></div>
-
-    <!-- About Me Section -->
     <section class="about-me">
         <h2>About Me</h2>
-        <!-- Profile Image -->
-        <img src="IMG_4565.jpg" alt="Profile Picture" class="profile-img">
-        <p>
-            I am an aspiring mechanical engineer studying at the University of Toronto. I am passionate about automotive and biomedical engineering, and I hope to specialize in automotive engineering. My goal is to apply my knowledge to create innovative solutions in the field of mechanical design.
-        </p>
+        <p>I'm a passionate and ambitious Mechanical Engineering student at ABC University, aiming to specialize in the automotive sector. I have hands-on experience in engineering projects ranging from CNC machining to building design and have gained proficiency in SolidWorks, MATLAB, and Python. With a strong foundation in mechanical design, I strive to create solutions that are both efficient and innovative.</p>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects">
-        <div class="project">
-            <img src="project1.jpg" alt="Project 1 Image" class="project-img" onclick="toggleProjectDetails('project1-details')">
-            <div id="project1-details" class="project-details">
-                <h3>Redesigning University Building</h3>
-                <p>This project involved re-designing the layout of a university building to improve space utilization and energy efficiency...</p>
+        <div class="project" onclick="window.location.href='project1.html'">
+            <img src="https://example.com/project1.jpg" alt="Project 1">
+            <div class="details">
+                <h3>Project 1</h3>
+                <p>Project description goes here. Click to see more.</p>
+            </div>
+        </div>
+        
+        <div class="project" onclick="window.location.href='project2.html'">
+            <img src="https://example.com/project2.jpg" alt="Project 2">
+            <div class="details">
+                <h3>Project 2</h3>
+                <p>Project description goes here. Click to see more.</p>
             </div>
         </div>
 
-        <div class="project">
-            <img src="project2.jpg" alt="Project 2 Image" class="project-img" onclick="toggleProjectDetails('project2-details')">
-            <div id="project2-details" class="project-details">
-                <h3>Bookstore Redesign</h3>
-                <p>This project was focused on optimizing the interior design of a bookstore for a better customer experience and efficient layout...</p>
-            </div>
-        </div>
-
-        <div class="project">
-            <img src="project3.jpg" alt="Project 3 Image" class="project-img" onclick="toggleProjectDetails('project3-details')">
-            <div id="project3-details" class="project-details">
-                <h3>CNC Router/Mill Project</h3>
-                <p>Working with a hobbyist client, I applied engineering project management methods to design and develop a CNC router/mill system...</p>
+        <div class="project" onclick="window.location.href='project3.html'">
+            <img src="https://example.com/project3.jpg" alt="Project 3">
+            <div class="details">
+                <h3>Project 3</h3>
+                <p>Project description goes here. Click to see more.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer>
-        <p>Contact Information: [Email | Phone | LinkedIn]</p>
+        <p>Contact me: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     </footer>
-
-    <script>
-        // Function to toggle project details on click
-        function toggleProjectDetails(projectId) {
-            var details = document.getElementById(projectId);
-            if (details.style.display === "block") {
-                details.style.display = "none";
-            } else {
-                details.style.display = "block";
-            }
-        }
-    </script>
-
 </body>
 </html>
