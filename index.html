@@ -114,7 +114,7 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 800px;
+            max-width: 600px;
         }
 
         .close {
@@ -138,7 +138,6 @@
         #modalImage img {
             width: 100%;
             height: auto;
-            margin-bottom: 15px;
         }
 
         /* Footer */
@@ -176,7 +175,7 @@
             <img src="project1.jpg" alt="___ Bookstore Inventory Management and Merchandise Flow Optimization">
             <div class="details">
                 <h3>___ Bookstore Inventory Management and Merchandise Flow Optimization</h3>
-                <p>Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties. I worked closely with the Engineering Manager to monitor project progress, resolve issues, and maintain client satisfaction throughout the project. Click to see more.</p>
+                <p>Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties. Click to see more.</p>
             </div>
         </div>
         
@@ -221,26 +220,21 @@
             const projectData = {
                 1: {
                     text: 'Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties.',
-                    images: ['project1.jpg', 'project1second.jpg', 'project1third.jpg', 'proj1fourth.jpg']
+                    image: ['project1.jpg', 'project1second.jpg', 'project1third.jpg', 'proj1fourth.jpg']
                 },
                 2: {
                     text: 'Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications.',
-                    images: ['project2.jpg', 'project2-2.jpg', 'project2-3.jpg']
+                    image: ['project2.jpg', 'project2-2.jpg', 'project2-3.jpg']
                 },
                 3: {
                     text: 'Project description for Project 3 goes here.',
-                    images: ['https://example.com/project3.jpg', 'https://example.com/project3-2.jpg']
+                    image: 'https://example.com/project3.jpg'
                 }
             };
 
             // Set the modal content based on the selected project
             modalText.innerHTML = projectData[projectId].text;
-
-            // Add all images to the modal
-            modalImage.innerHTML = '';
-            projectData[projectId].images.forEach(img => {
-                modalImage.innerHTML += `<img src="${img}" alt="Project Image">`;
-            });
+            modalImage.innerHTML = `<img src="${projectData[projectId].image}" alt="Project Image">`;
 
             // Show the modal
             modal.style.display = 'block';
@@ -250,4 +244,6 @@
             const modal = document.getElementById('myModal');
             modal.style.display = 'none';
         }
-    </
+    </script>
+</body>
+</html>
