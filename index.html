@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Engineering Portfolio</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,19 +13,35 @@
             background-color: #f4f4f4;
         }
 
+        /* Banner Section */
+        .banner {
+            width: 100%;
+            height: 300px;
+            background-image: url('banner.jpg'); /* Banner image file path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* About Me Section */
         .about-me {
             padding: 20px;
             background-color: #fff;
+            text-align: center;
         }
 
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            margin-right: 20px;
-            float: left;
+            margin-bottom: 20px;
         }
 
+        .about-me p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Projects Section */
         .projects {
             padding: 20px;
             display: flex;
@@ -39,6 +56,7 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .project-img {
@@ -68,29 +86,69 @@
             font-size: 14px;
             color: #333;
         }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer p {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Banner Section -->
+    <div class="banner"></div>
+
+    <!-- About Me Section -->
     <section class="about-me">
-        <div class="content">
-            <h2>About Me</h2>
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-            <p>I am an aspiring mechanical engineer at ABC University, passionate about automotive and biomedical engineering. Through hands-on projects and coursework, I've developed a strong foundation in design, analysis, and problem-solving. I'm eager to contribute to innovative projects that improve performance and enhance lives.</p>
-        </div>
+        <h2>About Me</h2>
+        <!-- Profile Image -->
+        <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+        <p>
+            I am an aspiring mechanical engineer studying at ABC University. I am passionate about automotive and biomedical engineering, and I hope to specialize in automotive engineering. My goal is to apply my knowledge to create innovative solutions in the field of mechanical design.
+        </p>
     </section>
 
+    <!-- Projects Section -->
     <section class="projects">
         <div class="project">
             <img src="project1.jpg" alt="Project 1 Image" class="project-img" onclick="toggleProjectDetails('project1-details')">
             <div id="project1-details" class="project-details">
-                <h3>Project 1 Title</h3>
-                <p>This project involved redesigning the layout of a building for university use. It aimed to improve space efficiency while adhering to safety regulations.</p>
+                <h3>Redesigning University Building</h3>
+                <p>This project involved re-designing the layout of a university building to improve space utilization and energy efficiency...</p>
             </div>
         </div>
-        <!-- More projects go here -->
+
+        <div class="project">
+            <img src="project2.jpg" alt="Project 2 Image" class="project-img" onclick="toggleProjectDetails('project2-details')">
+            <div id="project2-details" class="project-details">
+                <h3>Bookstore Redesign</h3>
+                <p>This project was focused on optimizing the interior design of a bookstore for a better customer experience and efficient layout...</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="project3.jpg" alt="Project 3 Image" class="project-img" onclick="toggleProjectDetails('project3-details')">
+            <div id="project3-details" class="project-details">
+                <h3>CNC Router/Mill Project</h3>
+                <p>Working with a hobbyist client, I applied engineering project management methods to design and develop a CNC router/mill system...</p>
+            </div>
+        </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer>
+        <p>Contact Information: [Email | Phone | LinkedIn]</p>
+    </footer>
+
     <script>
+        // Function to toggle project details on click
         function toggleProjectDetails(projectId) {
             var details = document.getElementById(projectId);
             if (details.style.display === "block") {
@@ -100,5 +158,6 @@
             }
         }
     </script>
+
 </body>
 </html>
