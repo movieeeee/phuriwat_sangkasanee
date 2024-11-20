@@ -93,6 +93,53 @@
             color: #555;
         }
 
+        /* Modal */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #modalText {
+            margin-bottom: 20px;
+        }
+
+        #modalImage img {
+            width: 100%;
+            height: auto;
+        }
+
         /* Footer */
         footer {
             background-color: #333;
@@ -120,27 +167,27 @@
 
     <section class="about-me">
         <h2>About Me</h2>
-        <p>Welcome! I am Phuriwat Sangkasanee, a dedicated Mechanical Engineering undergraduate at the University of Toronto, aiming to specialize in the automotive or biomedical sector. I am particularly focused on how advancements in mechanical design can drive innovation and improve the quality of life within those fields. Whether working on automotive systems or biomedical devices, I am excited to contribute to impactful solutions that enhance performance and improve lives.</p>
+        <p>Welcome! I am ___, a dedicated Mechanical Engineering undergraduate at the University of Toronto, aiming to specialize in the automotive or biomedical sector. I am particularly focused on how advancements in mechanical design can drive innovation and improve the quality of life within those fields. Whether working on automotive systems or biomedical devices, I am excited to contribute to impactful solutions that enhance performance and improve lives.</p>
     </section>
 
     <section class="projects">
-        <div class="project" onclick="window.location.href='project1.html'">
-            <img src="project1.jpg" alt="UofT Bookstore Inventory Management and Merchandise Flow Optimization">
+        <div class="project" onclick="openModal(1)">
+            <img src="project1.jpg" alt="___ Bookstore Inventory Management and Merchandise Flow Optimization">
             <div class="details">
-                <h3>Project 1</h3>
+                <h3>___ Bookstore Inventory Management and Merchandise Flow Optimization</h3>
                 <p>Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties. I worked closely with the Engineering Manager to monitor project progress, resolve issues, and maintain client satisfaction throughout the project. Click to see more.</p>
             </div>
         </div>
         
-        <div class="project" onclick="window.location.href='project2.html'">
-            <img src="project2.jpg" alt="Project 2">
+        <div class="project" onclick="openModal(2)">
+            <img src="project2.jpg" alt="CNC Machine Design">
             <div class="details">
-                <h3>Project 2</h3>
+                <h3>CNC Machine Design</h3>
                 <p>Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications. The project progressed efficiently through regular team meetings and project management tools to maintain timeline and resource tracking. Click to see more.</p>
             </div>
         </div>
 
-        <div class="project" onclick="window.location.href='project3.html'">
+        <div class="project" onclick="openModal(3)">
             <img src="https://example.com/project3.jpg" alt="Project 3">
             <div class="details">
                 <h3>Project 3</h3>
@@ -149,9 +196,54 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalText"></div>
+            <div id="modalImage"></div>
+        </div>
+    </div>
+
     <footer>
         <p>Contact me: <a href="phuriwat.sangkasanee@mail.utoronto.ca">phuriwat.sangkasanee@mail.utoronto.ca</a></p>
         <p>&copy; 2024 Phuriwat Sangkasanee. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function openModal(projectId) {
+            const modal = document.getElementById('myModal');
+            const modalText = document.getElementById('modalText');
+            const modalImage = document.getElementById('modalImage');
+
+            // Example data for projects
+            const projectData = {
+                1: {
+                    text: 'Part of an engineering team of six, we utilized CAD software to develop conceptual designs for shelving and storage layouts, ensuring the physical feasibility of our proposed system. Project management tools, such as Gantt charts, were used to create a detailed timeline, track progress, and manage resources effectively. As the Communications Liaison, I bridged the engineering team and external contacts, ensuring seamless communication between all parties.',
+                    image: 'project1.jpg'
+                },
+                2: {
+                    text: 'Led an engineering team of four in the development of a custom CNC machine tailored to a hobbyist’s needs. Through extensive research and collaboration, we created three candidate designs, which were narrowed down to a final concept. I spearheaded the design process, utilizing SolidWorks for CAD modeling of the mechanical components (gantry and spindle), ensuring alignment with the client’s specifications.',
+                    image: 'project2.jpg'
+                },
+                3: {
+                    text: 'Project description for Project 3 goes here.',
+                    image: 'https://example.com/project3.jpg'
+                }
+            };
+
+            // Set the modal content based on the selected project
+            modalText.innerHTML = projectData[projectId].text;
+            modalImage.innerHTML = `<img src="${projectData[projectId].image}" alt="Project Image">`;
+
+            // Show the modal
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
