@@ -3,116 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Portfolio</title>
+    <title>Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f4f4f4;
         }
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
+
+        .about-me {
+            padding: 20px;
+            background-color: #fff;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #003366;
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+            float: left;
         }
-        nav a {
-            color: white;
-            padding: 1em;
-            text-decoration: none;
-            margin: 0 0.5em;
-        }
-        nav a:hover {
-            background: #002244;
-        }
-        .section {
-            padding: 2em;
-            margin: 1em 2em;
-            background: #f4f4f4;
-            border-radius: 5px;
-        }
+
         .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1em;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
-        .project-card {
-            background: white;
-            padding: 1em;
-            border: 1px solid #ddd;
+
+        .project {
+            width: 30%;
+            margin: 10px;
+            background-color: #fff;
+            padding: 15px;
             border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        footer {
-            background: #004080;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
+
+        .project-img {
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
+
+        .project-img:hover {
+            transform: scale(1.05);
+        }
+
+        .project-details {
+            display: none;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .project-details h3 {
+            font-size: 18px;
+        }
+
+        .project-details p {
+            font-size: 14px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Engineering Portfolio</h1>
-    <p>Phuriwat Sangkasanee | Aspiring Mechanical Engineer</p>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <p>Welcome! I am Phuriwat Sangkasanee, an ambitious mechanical engineering undergraduate at the University of Toronto, specializing in [specific field/area]. I have experience in [brief description of expertise]. My goal is to develop innovative engineering solutions and contribute to impactful projects. Explore this portfolio to learn more about my work.</p>
-</section>
-
-<section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-        <div class="project-card">
-            <h3>Project Title 1</h3>
-            <p>Brief description of the project, technologies used, and outcomes achieved.</p>
+    <section class="about-me">
+        <div class="content">
+            <h2>About Me</h2>
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <p>I am an aspiring mechanical engineer at ABC University, passionate about automotive and biomedical engineering. Through hands-on projects and coursework, I've developed a strong foundation in design, analysis, and problem-solving. I'm eager to contribute to innovative projects that improve performance and enhance lives.</p>
         </div>
-        <div class="project-card">
-            <h3>Project Title 2</h3>
-            <p>Brief description of another project, detailing relevant experience gained.</p>
+    </section>
+
+    <section class="projects">
+        <div class="project">
+            <img src="project1.jpg" alt="Project 1 Image" class="project-img" onclick="toggleProjectDetails('project1-details')">
+            <div id="project1-details" class="project-details">
+                <h3>Project 1 Title</h3>
+                <p>This project involved redesigning the layout of a building for university use. It aimed to improve space efficiency while adhering to safety regulations.</p>
+            </div>
         </div>
-        <!-- Add more project cards as needed -->
-    </div>
-</section>
+        <!-- More projects go here -->
+    </section>
 
-<section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: yourname@example.com</p>
-    <p>Phone: (123) 456-7890</p>
-    <p>Feel free to reach out for collaborations or inquiries!</p>
-</section>
-
-<section class="about-me">
-  <div class="content">
-    <h2>About Me</h2>
-    <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-    <p>I am an aspiring mechanical engineer at ABC University, passionate about automotive and biomedical engineering...</p>
-  </div>
-</section>
-
-<footer>
-    <p>&copy; 2024 Your Name. All rights reserved.</p>
-</footer>
-
+    <script>
+        function toggleProjectDetails(projectId) {
+            var details = document.getElementById(projectId);
+            if (details.style.display === "block") {
+                details.style.display = "none";
+            } else {
+                details.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
